@@ -52,7 +52,7 @@ public class FragmenListLike extends SherlockFragment {
             public View view;
             public boolean restore;
             public FragmentActivity activity;
-            public ArticleCollection articles;
+//            public ArticleCollection articles;
             public ArticleCollection articles_db;
         }
 
@@ -72,7 +72,7 @@ public class FragmenListLike extends SherlockFragment {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             view = inflater.inflate(R.layout.fragment_list, container, false);
             setHasOptionsMenu(true);
-            loading = View.inflate(_self.activity, R.layout.loading, new LinearLayout(_self.activity));
+//            loading = View.inflate(_self.activity, R.layout.loading, new LinearLayout(_self.activity));
 
             return view;
         }
@@ -93,7 +93,10 @@ public class FragmenListLike extends SherlockFragment {
                 }
             }
         }
-
+        public void onResume(){
+            super.onResume();
+            loadData();
+        }
 
         @Override
         public void onPause() {

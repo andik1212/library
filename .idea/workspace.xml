@@ -30,45 +30,6 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="116" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike$1" package="com.example.andik1212.fragments">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="117" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike$1" package="com.example.andik1212.fragments">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="118" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike$1" package="com.example.andik1212.fragments">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="119" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike$1" package="com.example.andik1212.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -95,7 +56,46 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="97" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike" package="com.example.andik1212.fragments">
+      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="121" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike$1" package="com.example.andik1212.fragments">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="122" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike$1" package="com.example.andik1212.fragments">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="123" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike$1" package="com.example.andik1212.fragments">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" line="100" class="com.example.andik1212.fragments.FragmenListLike.FragmentListLike" package="com.example.andik1212.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -149,10 +149,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FragmentDetail.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FragmentDetail.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmentDetail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="90" selection-start="4616" selection-end="4616" vertical-scroll-proportion="0.87">
+            <state line="124" column="90" selection-start="4616" selection-end="4616" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -163,6 +163,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="233" column="91" selection-start="8499" selection-end="8499" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FragmenListLike.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="23" selection-start="3182" selection-end="3182" vertical-scroll-proportion="0.85">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,7 +210,6 @@
         <option value="$PROJECT_DIR$/NewsApp/src/com/example/andik1212/helper/Article.java" />
         <option value="$PROJECT_DIR$/NewsApp/src/com/example/andik1212/database/DataBaseHelper.java" />
         <option value="$PROJECT_DIR$/NewsApp/src/com/example/andik1212/helper/ArticleCollection.java" />
-        <option value="$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" />
         <option value="$PROJECT_DIR$/src/android/support/v4/app/Watson.java" />
         <option value="$PROJECT_DIR$/src/com/actionbarsherlock/ActionBarSherlock.java" />
         <option value="$PROJECT_DIR$/src/com/actionbarsherlock/app/SherlockFragment.java" />
@@ -211,6 +221,7 @@
         <option value="$PROJECT_DIR$/src/com/actionbarsherlock/app/SherlockActivity.java" />
         <option value="$PROJECT_DIR$/src/com/actionbarsherlock/app/SherlockListActivity.java" />
         <option value="$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmentDetail.java" />
+        <option value="$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java" />
       </list>
     </option>
   </component>
@@ -886,23 +897,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="48" selection-start="6713" selection-end="6713" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3278#4494#0" expanded="true" />
-            <element signature="e#4479#4480#0" expanded="true" />
-            <element signature="e#4601#4903#0" expanded="true" />
-            <element signature="e#4888#4889#0" expanded="true" />
-            <element signature="e#4992#6630#0" expanded="true" />
-            <element signature="e#5699#6573#0" expanded="true" />
-            <element signature="e#6546#6547#0" expanded="true" />
-            <element signature="e#6615#6616#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/android/support/v4/app/Watson.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="76" selection-start="2604" selection-end="2604" vertical-scroll-proportion="0.0">
@@ -996,6 +990,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmentDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="90" selection-start="4616" selection-end="4616" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmentList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="233" column="91" selection-start="8499" selection-end="8499" vertical-scroll-proportion="0.0">
@@ -1003,10 +1004,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmentDetail.java">
+    <entry file="file://$PROJECT_DIR$/NewsApp/src/com/example/andik1212/fragments/FragmenListLike.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="90" selection-start="4616" selection-end="4616" vertical-scroll-proportion="0.87">
-          <folding />
+        <state line="97" column="23" selection-start="3182" selection-end="3182" vertical-scroll-proportion="0.85">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
