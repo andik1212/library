@@ -11,7 +11,7 @@ import org.json.JSONObject;
  * To change this template use File | Settings | File Templates.
  */
 public class Article {
-    @DatabaseField(generatedId = false)
+    @DatabaseField(id = true)
     private String id;
     @DatabaseField
     private String title;

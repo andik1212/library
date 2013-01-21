@@ -71,7 +71,7 @@ public abstract class ActionBarSherlock {
 
     /** Activity interface for menu creation callback. */
     public interface OnCreatePanelMenuListener {
-        public boolean onCreatePanelMenu(int featureId, Menu menu);
+        public boolean onCreatePanelMenu(int featureId, Menu menu) throws SQLException;
     }
     /** Activity interface for menu creation callback. */
     public interface OnCreateOptionsMenuListener {
@@ -447,7 +447,7 @@ public abstract class ActionBarSherlock {
      * @param menu Activity native menu.
      * @return {@code true} since we always want to say that we have a native
      */
-    public abstract boolean dispatchCreateOptionsMenu(android.view.Menu menu);
+    public abstract boolean dispatchCreateOptionsMenu(android.view.Menu menu) throws SQLException;
 
     /**
      * Notify the action bar that the Activity has triggered a menu preparation
@@ -551,7 +551,7 @@ public abstract class ActionBarSherlock {
      *
      * @return {@code true} if menu creation should proceed.
      */
-    protected final boolean callbackCreateOptionsMenu(Menu menu) {
+    protected final boolean callbackCreateOptionsMenu(Menu menu) throws SQLException {
         if (DEBUG) Log.d(TAG, "[callbackCreateOptionsMenu] menu: " + menu);
 
         boolean result = true;

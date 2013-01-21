@@ -20,7 +20,7 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
 
     /** Fragment interface for menu creation callback. */
     public interface OnCreateOptionsMenuListener {
-        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater);
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) throws SQLException;
     }
     /** Fragment interface for menu preparation callback. */
     public interface OnPrepareOptionsMenuListener {
@@ -39,7 +39,7 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
     ///////////////////////////////////////////////////////////////////////////
 
     @Override
-    public boolean onCreatePanelMenu(int featureId, Menu menu) {
+    public boolean onCreatePanelMenu(int featureId, Menu menu) throws SQLException {
         if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] featureId: " + featureId + ", menu: " + menu);
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL) {

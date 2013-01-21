@@ -52,7 +52,7 @@ public class ActionBarSherlockNative extends ActionBarSherlock {
     }
 
     @Override
-    public boolean dispatchCreateOptionsMenu(android.view.Menu menu) {
+    public boolean dispatchCreateOptionsMenu(android.view.Menu menu) throws SQLException {
         if (DEBUG) Log.d(TAG, "[dispatchCreateOptionsMenu] menu: " + menu);
 
         if (mMenu == null || menu != mMenu.unwrap()) {

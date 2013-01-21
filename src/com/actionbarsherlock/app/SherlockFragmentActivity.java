@@ -164,7 +164,12 @@ public class SherlockFragmentActivity extends Watson implements OnActionModeStar
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL && !mIgnoreNativeCreate) {
             mIgnoreNativeCreate = true;
-            boolean result = getSherlock().dispatchCreateOptionsMenu(menu);
+            boolean result = false;
+            try {
+                result = getSherlock().dispatchCreateOptionsMenu(menu);
+            } catch (SQLException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
             mIgnoreNativeCreate = false;
 
             if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] returning " + result);

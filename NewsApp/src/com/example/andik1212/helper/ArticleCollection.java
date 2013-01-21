@@ -18,6 +18,10 @@ import java.util.Vector;
 public class ArticleCollection extends Vector{
     public ArticleCollection(List<Article> articles) {
         //To change body of created methods use File | Settings | File Templates.
+        for(int i = 0; i < articles.size() ; i++ )
+        {
+            this.add(i, (Article)articles.get(i));
+        }
     }
     public ArticleCollection(){};
 

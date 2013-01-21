@@ -81,7 +81,7 @@ public class FragmenListLike extends SherlockFragment {
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
 
-            if (_self.restore && _self.articles.size() > 0){
+            if (_self.restore && _self.articles_db.size() > 0){
                 updateUi();
                 _self.restore = false;
             } else{
@@ -151,7 +151,7 @@ public class FragmenListLike extends SherlockFragment {
                 @Override
                 public void run() {
                     //To change body of implemented methods use File | Settings | File Templates.
-                    if (_self.articles.size() > 0){
+                    if (_self.articles_db.size() > 0){
                         ListView list = (ListView) view.findViewById(R.id.list);
 
 //                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_2,
@@ -194,23 +194,6 @@ public class FragmenListLike extends SherlockFragment {
             if(item.getItemId() == StartActivity.OPT_BUTTON_ALLLIKES)
             {
 //            toDo on pressed
-//            Toast.makeText(_self.activity, "likes....", Toast.LENGTH_LONG).show();
-//            _self.articles_db = new ArticleCollection(DBHelperAdapter.GetHelper().getArticleDao().queryForAll());
-//            Article art;
-//            values = new String[_self.articles.size()];
-//            date = new String[_self.articles.size()];
-//            content = new String[_self.articles.size()];
-//            jId = new String[_self.articles.size()];
-//            for (int i = 0; i < _self.articles.size(); i++){
-//                art = (Article)_self.articles.elementAt(i);
-//                values[i] = art.getTitle();
-//                date[i] = art.getDate();
-//                date[i] = date[i].substring(0, 10);
-//                content[i] = art.getContent();
-//                jId[i] = art.getId();
-//                hideLoadingIndicator();
-//                updateUi();
-//            }
                 _self.activity.getSupportFragmentManager().beginTransaction().replace(R.id.list_frag, new FragmentList()).addToBackStack(null).commit();
 
             }

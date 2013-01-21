@@ -478,16 +478,20 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
             // Creating the panel menu will involve a lot of manipulation;
             // don't dispatch change events to presenters until we're done.
             mMenu.stopDispatchingItemsChanged();
-            if (!callbackCreateOptionsMenu(mMenu)) {
-                // Ditch the menu created above
-                mMenu = null;
+            try {
+                if (!callbackCreateOptionsMenu(mMenu)) {
+                    // Ditch the menu created above
+                    mMenu = null;
 
-                if (wActionBar != null) {
-                    // Don't show it in the action bar either
-                    wActionBar.setMenu(null, this);
+                    if (wActionBar != null) {
+                        // Don't show it in the action bar either
+                        wActionBar.setMenu(null, this);
+                    }
+
+                    return false;
                 }
-
-                return false;
+            } catch (SQLException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
 
             mMenuRefreshContent = false;

@@ -39,11 +39,15 @@ public class SherlockFragment extends Fragment implements OnCreateOptionsMenuLis
 
     @Override
     public final void onCreateOptionsMenu(android.view.Menu menu, android.view.MenuInflater inflater) {
-        onCreateOptionsMenu(new MenuWrapper(menu), mActivity.getSupportMenuInflater());
+        try {
+            onCreateOptionsMenu(new MenuWrapper(menu), mActivity.getSupportMenuInflater());
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) throws SQLException {
         //Nothing to see here.
     }
 

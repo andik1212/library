@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -14,8 +15,10 @@ import com.example.andik1212.ActivityDetail;
 import com.example.andik1212.R;
 import com.example.andik1212.database.DBHelperAdapter;
 import com.example.andik1212.helper.Article;
+import com.example.andik1212.helper.ArticleCollection;
 
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class FragmentDetail extends SherlockFragment {
@@ -26,6 +29,9 @@ public class FragmentDetail extends SherlockFragment {
 
     private View view;
     private String[] text;
+    Article article = new Article();
+    String buttonLabel = "like";
+    Menu menuLockal;
 
 
     public static FragmentDetail newInstance(String[] text) {
@@ -42,6 +48,10 @@ public class FragmentDetail extends SherlockFragment {
         Bundle args = getArguments();
         if (args != null) {
             text = args.getStringArray(EXTRA_TEXT);
+            article.setId(text[0]);
+            article.setTitle(text[1]);
+            article.setDate(text[2]);
+            article.setContent(text[3]);
         }
     }
 
@@ -71,20 +81,6 @@ public class FragmentDetail extends SherlockFragment {
             }
         });
 
-//        Button replace = (Button) view.findViewById(R.id.details_btn);
-//        replace.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Fragment2_2 numberFragment = Fragment2_2.newInstance(text);
-//                numberFragment.setTargetFragment(Fragment2_1.this, REQUEST_NUMBER);
-//
-//                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-//                ft.replace(R.id.frag_container, numberFragment);
-//                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-//                ft.addToBackStack(null);
-//                ft.commit();
-//            }
-//        });
     }
 
     @Override
@@ -95,26 +91,41 @@ public class FragmentDetail extends SherlockFragment {
 
 
 
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
-    {
-        menu.add(0, ActivityDetail.OPT_BUTTON_LIKE, 0, "like").setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) throws SQLException {
+        List articleList = null;
+        articleList = DBHelperAdapter.GetHelper().getArticleDao().queryForMatchingArgs(article);
+        Boolean existIn = false;
+        if (!(articleList == null || articleList.size()==0)) existIn = true;
+        if (existIn) {buttonLabel = "disLike";} else {buttonLabel = "like";}
+
+        menu.add(0, ActivityDetail.OPT_BUTTON_LIKE, 0, buttonLabel).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        this.menuLockal=menu;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) throws SQLException {
         if(item.getItemId() == ActivityDetail.OPT_BUTTON_LIKE)
-        {
+        {   int rows=-1;
 //            toDo on pressed
-            try{
-                Article article = new Article();
-                article.setId(text[0]);
-                article.setTitle(text[1]);
-                article.setDate(text[2]);
-                article.setContent(text[3]);
+            if (buttonLabel == "like"){
 
-                DBHelperAdapter.GetHelper().getArticleDao().create(article);
+            try{
+                rows = DBHelperAdapter.GetHelper().getArticleDao().create(article);
+                Toast.makeText(getActivity(),rows+" rows updated",Toast.LENGTH_SHORT).show();
+//                ArticleCollection articles_db = new ArticleCollection(DBHelperAdapter.GetHelper().getArticleDao().queryForAll());
+//                Toast.makeText(getActivity(),rows+" rows updated"+articles_db.size()+" entries in bd",Toast.LENGTH_LONG).show();
+                buttonLabel = "disLike";
+                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setTitle(buttonLabel);
             } catch (SQLException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
+            }else{
+                rows = DBHelperAdapter.GetHelper().getArticleDao().delete(article);
+                Toast.makeText(getActivity(),rows+" rows deleted",Toast.LENGTH_SHORT).show();
+                buttonLabel = "like";
+                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setTitle(buttonLabel);
+
+            }
+
 
         }
 

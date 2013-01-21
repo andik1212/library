@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class DataBaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
-    private static final String DATABASE_NAME = "Articles";
+    private static final String DATABASE_NAME = "Articles.sqlite";
 
     private static final String TAG = "DBAdapter";
 
