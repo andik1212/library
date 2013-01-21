@@ -18,6 +18,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.sql.SQLException;
+
 public abstract class SherlockExpandableListActivity extends ExpandableListActivity implements OnCreatePanelMenuListener, OnPreparePanelListener, OnMenuItemSelectedListener, OnActionModeStartedListener, OnActionModeFinishedListener {
     private ActionBarSherlock mSherlock;
 
@@ -145,7 +147,12 @@ public abstract class SherlockExpandableListActivity extends ExpandableListActiv
 
     @Override
     public final boolean onOptionsItemSelected(android.view.MenuItem item) {
-        return getSherlock().dispatchOptionsItemSelected(item);
+        try {
+            return getSherlock().dispatchOptionsItemSelected(item);
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return false;
     }
 
     @Override

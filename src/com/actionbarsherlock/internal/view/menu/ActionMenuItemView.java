@@ -16,6 +16,7 @@
 
 package com.actionbarsherlock.internal.view.menu;
 
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 import android.content.Context;
@@ -142,7 +143,11 @@ public class ActionMenuItemView extends LinearLayout
 
     public void onClick(View v) {
         if (mItemInvoker != null) {
-            mItemInvoker.invokeItem(mItemData);
+            try {
+                mItemInvoker.invokeItem(mItemData);
+            } catch (SQLException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         }
     }
 

@@ -8,6 +8,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.sql.SQLException;
+
 import static com.actionbarsherlock.app.SherlockFragmentActivity.OnCreateOptionsMenuListener;
 import static com.actionbarsherlock.app.SherlockFragmentActivity.OnOptionsItemSelectedListener;
 import static com.actionbarsherlock.app.SherlockFragmentActivity.OnPrepareOptionsMenuListener;
@@ -57,11 +59,16 @@ public class SherlockFragment extends Fragment implements OnCreateOptionsMenuLis
 
     @Override
     public final boolean onOptionsItemSelected(android.view.MenuItem item) {
-        return onOptionsItemSelected(new MenuItemWrapper(item));
+        try {
+            return onOptionsItemSelected(new MenuItemWrapper(item));
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return false;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) throws SQLException {
         //Nothing to see here.
         return false;
     }

@@ -50,6 +50,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="ormlite-android-4.42" level="project" />
+    <orderEntry type="library" name="ormlite-core-4.42" level="project" />
+    <orderEntry type="library" name="ormlite-jdbc-4.42" level="project" />
   </component>
 </module>
 

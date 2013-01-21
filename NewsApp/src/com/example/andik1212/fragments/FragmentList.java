@@ -19,11 +19,14 @@ import com.actionbarsherlock.view.MenuItem;
 import com.example.andik1212.ActivityDetail;
 import com.example.andik1212.R;
 import com.example.andik1212.StartActivity;
+import com.example.andik1212.database.DBHelperAdapter;
 import com.example.andik1212.fragments.FragmentDetail;
 import com.example.andik1212.helper.Article;
 import com.example.andik1212.helper.ArticleCollection;
 import com.example.andik1212.helper.CustomArrayAdapter;
 import com.example.andik1212.helper.GetNews;
+
+import java.sql.SQLException;
 
 public class FragmentList extends SherlockFragment {
     private static FragmentList Instance;
@@ -44,6 +47,7 @@ public class FragmentList extends SherlockFragment {
         public boolean restore;
         public FragmentActivity activity;
         public ArticleCollection articles;
+        public ArticleCollection articles_db;
     }
 
     static Self _self = new Self();
@@ -206,11 +210,29 @@ public class FragmentList extends SherlockFragment {
         menu.add(0, StartActivity.OPT_BUTTON_ALLLIKES,0,"All likes").setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) throws SQLException {
         if(item.getItemId() == StartActivity.OPT_BUTTON_ALLLIKES)
         {
 //            toDo on pressed
+//            Toast.makeText(_self.activity, "likes....", Toast.LENGTH_LONG).show();
+//            _self.articles_db = new ArticleCollection(DBHelperAdapter.GetHelper().getArticleDao().queryForAll());
+//            Article art;
+//            values = new String[_self.articles.size()];
+//            date = new String[_self.articles.size()];
+//            content = new String[_self.articles.size()];
+//            jId = new String[_self.articles.size()];
+//            for (int i = 0; i < _self.articles.size(); i++){
+//                art = (Article)_self.articles.elementAt(i);
+//                values[i] = art.getTitle();
+//                date[i] = art.getDate();
+//                date[i] = date[i].substring(0, 10);
+//                content[i] = art.getContent();
+//                jId[i] = art.getId();
+//                hideLoadingIndicator();
+//                updateUi();
+//            }
+            _self.activity.getSupportFragmentManager().beginTransaction().replace(R.id.list_frag, new FragmenListLike.FragmentListLike()).addToBackStack(null).commit();
+
         }
 
         return super.onOptionsItemSelected(item);

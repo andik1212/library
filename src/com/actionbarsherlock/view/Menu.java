@@ -20,6 +20,8 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.view.KeyEvent;
 
+import java.sql.SQLException;
+
 /**
  * Interface for managing the items in a menu.
  * <p>
@@ -412,7 +414,7 @@ public interface Menu {
      *
      * @see #FLAG_PERFORM_NO_CLOSE
      */
-    public boolean performShortcut(int keyCode, KeyEvent event, int flags);
+    public boolean performShortcut(int keyCode, KeyEvent event, int flags) throws SQLException;
 
     /**
      * Is a keypress one of the defined shortcut keys for this window.
@@ -432,7 +434,7 @@ public interface Menu {
      *
      * @see #FLAG_PERFORM_NO_CLOSE
      */
-    public boolean performIdentifierAction(int id, int flags);
+    public boolean performIdentifierAction(int id, int flags) throws SQLException;
 
 
     /**

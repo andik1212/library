@@ -18,6 +18,7 @@ package com.actionbarsherlock.internal.view.menu;
 
 
 import java.lang.ref.WeakReference;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -169,7 +170,7 @@ public class MenuBuilder implements Menu {
          * @param item The menu item that is selected
          * @return whether the menu item selection was handled
          */
-        public boolean onMenuItemSelected(MenuBuilder menu, MenuItem item);
+        public boolean onMenuItemSelected(MenuBuilder menu, MenuItem item) throws SQLException;
 
         /**
          * Called when the mode of the menu changes (for example, from icon to expanded).
@@ -183,7 +184,7 @@ public class MenuBuilder implements Menu {
      * Called by menu items to execute their associated action
      */
     public interface ItemInvoker {
-        public boolean invokeItem(MenuItemImpl item);
+        public boolean invokeItem(MenuItemImpl item) throws SQLException;
     }
 
     public MenuBuilder(Context context) {
@@ -734,7 +735,7 @@ public class MenuBuilder implements Menu {
         return mContext;
     }
 
-    boolean dispatchMenuItemSelected(MenuBuilder menu, MenuItem item) {
+    boolean dispatchMenuItemSelected(MenuBuilder menu, MenuItem item) throws SQLException {
         return mCallback != null && mCallback.onMenuItemSelected(menu, item);
     }
 
@@ -758,7 +759,7 @@ public class MenuBuilder implements Menu {
         return 0;
     }
 
-    public boolean performShortcut(int keyCode, KeyEvent event, int flags) {
+    public boolean performShortcut(int keyCode, KeyEvent event, int flags) throws SQLException {
         final MenuItemImpl item = findItemWithShortcutForKey(keyCode, event);
 
         boolean handled = false;
@@ -864,12 +865,12 @@ public class MenuBuilder implements Menu {
         return null;
     }
 
-    public boolean performIdentifierAction(int id, int flags) {
+    public boolean performIdentifierAction(int id, int flags) throws SQLException {
         // Look for an item whose identifier is the id.
         return performItemAction(findItem(id), flags);
     }
 
-    public boolean performItemAction(MenuItem item, int flags) {
+    public boolean performItemAction(MenuItem item, int flags) throws SQLException {
         MenuItemImpl itemImpl = (MenuItemImpl) item;
 
         if (itemImpl == null || !itemImpl.isEnabled()) {

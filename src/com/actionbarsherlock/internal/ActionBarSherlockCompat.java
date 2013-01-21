@@ -2,6 +2,8 @@ package com.actionbarsherlock.internal;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static com.actionbarsherlock.internal.ResourcesCompat.getResources_getBoolean;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -525,7 +527,7 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
         return true;
     }
 
-    public boolean onMenuItemSelected(MenuBuilder menu, MenuItem item) {
+    public boolean onMenuItemSelected(MenuBuilder menu, MenuItem item) throws SQLException {
         return callbackOptionsItemSelected(item);
     }
 
@@ -600,7 +602,11 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
 
         final MenuItemImpl sherlockItem = mNativeItemMap.get(item);
         if (sherlockItem != null) {
-            sherlockItem.invoke();
+            try {
+                sherlockItem.invoke();
+            } catch (SQLException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         } else {
             Log.e(TAG, "Options item \"" + item + "\" not found in mapping");
         }
@@ -609,7 +615,7 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onMenuItemSelected(int featureId, MenuItem item) throws SQLException {
         return callbackOptionsItemSelected(item);
     }
 

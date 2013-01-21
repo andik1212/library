@@ -18,6 +18,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.sql.SQLException;
+
 public abstract class SherlockPreferenceActivity extends PreferenceActivity implements OnCreatePanelMenuListener, OnPreparePanelListener, OnMenuItemSelectedListener, OnActionModeStartedListener, OnActionModeFinishedListener {
     private ActionBarSherlock mSherlock;
 
@@ -156,7 +158,12 @@ public abstract class SherlockPreferenceActivity extends PreferenceActivity impl
 
     @Override
     public final boolean onOptionsItemSelected(android.view.MenuItem item) {
-        return getSherlock().dispatchOptionsItemSelected(item);
+        try {
+            return getSherlock().dispatchOptionsItemSelected(item);
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return false;
     }
 
     @Override

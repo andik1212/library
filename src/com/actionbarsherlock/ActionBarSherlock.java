@@ -7,6 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
 import android.app.Activity;
@@ -78,7 +79,7 @@ public abstract class ActionBarSherlock {
     }
     /** Activity interface for menu item selection callback. */
     public interface OnMenuItemSelectedListener {
-        public boolean onMenuItemSelected(int featureId, MenuItem item);
+        public boolean onMenuItemSelected(int featureId, MenuItem item) throws SQLException;
     }
     /** Activity interface for menu item selection callback. */
     public interface OnOptionsItemSelectedListener {
@@ -480,7 +481,7 @@ public abstract class ActionBarSherlock {
      * @param item Options menu item.
      * @return @{code true} if the selection was handled.
      */
-    public abstract boolean dispatchOptionsItemSelected(android.view.MenuItem item);
+    public abstract boolean dispatchOptionsItemSelected(android.view.MenuItem item) throws SQLException;
 
     /**
      * Notify the action bar that the overflow menu has been opened. The
@@ -594,7 +595,7 @@ public abstract class ActionBarSherlock {
      * @param item Selected options menu item.
      * @return {@code true} if the item selection was handled in the callback.
      */
-    protected final boolean callbackOptionsItemSelected(MenuItem item) {
+    protected final boolean callbackOptionsItemSelected(MenuItem item) throws SQLException {
         if (DEBUG) Log.d(TAG, "[callbackOptionsItemSelected] item: " + item.getTitleCondensed());
 
         boolean result = false;

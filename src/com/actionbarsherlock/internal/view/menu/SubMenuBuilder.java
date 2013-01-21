@@ -24,6 +24,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
 
+import java.sql.SQLException;
+
 /**
  * The model for a sub menu, which is an extension of the menu.  Most methods are proxied to
  * the parent menu.
@@ -78,7 +80,7 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override
-    boolean dispatchMenuItemSelected(MenuBuilder menu, MenuItem item) {
+    boolean dispatchMenuItemSelected(MenuBuilder menu, MenuItem item) throws SQLException {
         return super.dispatchMenuItemSelected(menu, item) ||
                 mParentMenu.dispatchMenuItemSelected(menu, item);
     }

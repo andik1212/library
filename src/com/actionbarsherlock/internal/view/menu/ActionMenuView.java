@@ -27,6 +27,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import com.actionbarsherlock.internal.widget.IcsLinearLayout;
 
+import java.sql.SQLException;
+
 /**
  * @hide
  */
@@ -506,7 +508,7 @@ public class ActionMenuView extends IcsLinearLayout implements MenuBuilder.ItemI
         return result;
     }
 
-    public boolean invokeItem(MenuItemImpl item) {
+    public boolean invokeItem(MenuItemImpl item) throws SQLException {
         return mMenu.performItemAction(item, 0);
     }
 

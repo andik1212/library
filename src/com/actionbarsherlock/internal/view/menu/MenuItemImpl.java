@@ -31,6 +31,8 @@ import com.actionbarsherlock.view.ActionProvider;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
 
+import java.sql.SQLException;
+
 /**
  * @hide
  */
@@ -139,7 +141,7 @@ public final class MenuItemImpl implements MenuItem {
      *
      * @return true if the invocation was handled, false otherwise
      */
-    public boolean invoke() {
+    public boolean invoke() throws SQLException {
         if (mClickListener != null &&
             mClickListener.onMenuItemClick(this)) {
             return true;

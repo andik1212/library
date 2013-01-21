@@ -19,6 +19,8 @@ package com.actionbarsherlock.view;
 
 import android.content.Context;
 
+import java.sql.SQLException;
+
 /**
  * <p>Abstract base class for a top-level window look and behavior policy. An
  * instance of this class should be used as the top-level view added to the
@@ -60,6 +62,6 @@ public abstract class Window extends android.view.Window {
          *         false to perform the normal menu handling (calling its
          *         Runnable or sending a Message to its target Handler).
          */
-        public boolean onMenuItemSelected(int featureId, MenuItem item);
+        public boolean onMenuItemSelected(int featureId, MenuItem item) throws SQLException;
     }
 }

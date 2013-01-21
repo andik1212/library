@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ormlite-jdbc-4.42">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/NewsApp/libs/ormlite-jdbc-4.42.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

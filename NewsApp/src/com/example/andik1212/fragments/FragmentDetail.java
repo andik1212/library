@@ -1,22 +1,21 @@
 package com.example.andik1212.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.example.andik1212.ActivityDetail;
 import com.example.andik1212.R;
-import com.example.andik1212.database.DBAdapter;
+import com.example.andik1212.database.DBHelperAdapter;
+import com.example.andik1212.helper.Article;
+
+import java.sql.SQLException;
 
 
 public class FragmentDetail extends SherlockFragment {
@@ -27,7 +26,7 @@ public class FragmentDetail extends SherlockFragment {
 
     private View view;
     private String[] text;
-    DBAdapter db = new DBAdapter(getActivity());
+
 
     public static FragmentDetail newInstance(String[] text) {
         FragmentDetail f = new FragmentDetail();
@@ -101,14 +100,22 @@ public class FragmentDetail extends SherlockFragment {
         menu.add(0, ActivityDetail.OPT_BUTTON_LIKE, 0, "like").setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) throws SQLException {
         if(item.getItemId() == ActivityDetail.OPT_BUTTON_LIKE)
         {
 //            toDo on pressed
-            db.open();
-            Toast.makeText(getActivity(), db.putDB(text)+"", Toast.LENGTH_SHORT).show();
-            db.close();
+            try{
+                Article article = new Article();
+                article.setId(text[0]);
+                article.setTitle(text[1]);
+                article.setDate(text[2]);
+                article.setContent(text[3]);
+
+                DBHelperAdapter.GetHelper().getArticleDao().create(article);
+            } catch (SQLException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -116,17 +123,4 @@ public class FragmentDetail extends SherlockFragment {
 
 
 
-
-//    public void setText(final String number, final int requestCode) {
-//        getActivity().runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                switch (requestCode) {
-//                    case 1:
-//                        text = text + " " + number;
-//                        break;
-//                }
-//            }
-//        });
-//    }
 }

@@ -1,6 +1,5 @@
 package com.example.andik1212;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,12 +17,14 @@ public class StartActivity extends SherlockFragmentActivity {
 
     public static final int OPT_BUTTON_ALLLIKES = 0;
 
+
     /**
      * Called when the activity is first created.
      */
     FragmentList fragmentList = new FragmentList();
     @Override
     public void onCreate(Bundle savedInstanceState) {
+//        db.open();
         super.onCreate(savedInstanceState);
         setTheme(R.style.Theme_Sherlock);
         setContentView(R.layout.main);
@@ -41,6 +42,7 @@ public class StartActivity extends SherlockFragmentActivity {
 
     public void onDestroy(){
         stopService(new Intent(this, InternetCheckService.class));
+//        db.close();
 //        InternetCheckService.UPDATE = "com.example.andik1212.NULL";
         super.onDestroy();
     }

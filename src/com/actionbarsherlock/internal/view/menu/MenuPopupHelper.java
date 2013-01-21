@@ -16,6 +16,7 @@
 
 package com.actionbarsherlock.internal.view.menu;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import android.content.Context;
 import android.content.res.Resources;
@@ -155,7 +156,11 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         MenuAdapter adapter = mAdapter;
-        adapter.mAdapterMenu.performItemAction(adapter.getItem(position), 0);
+        try {
+            adapter.mAdapterMenu.performItemAction(adapter.getItem(position), 0);
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
     }
 
     public boolean onKey(View v, int keyCode, KeyEvent event) {

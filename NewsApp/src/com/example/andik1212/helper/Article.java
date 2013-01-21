@@ -1,5 +1,6 @@
 package com.example.andik1212.helper;
 
+import com.j256.ormlite.field.DatabaseField;
 import org.json.JSONObject;
 
 /**
@@ -10,20 +11,25 @@ import org.json.JSONObject;
  * To change this template use File | Settings | File Templates.
  */
 public class Article {
+    @DatabaseField(generatedId = false)
+    private String id;
+    @DatabaseField
     private String title;
+    @DatabaseField
     private String date;
+    @DatabaseField
     private String content;
 
-    private String id;
 
 
 
-    public Article(JSONObject jo){
+     public Article(JSONObject jo){
         setTitle(jo.optJSONObject("title").optString("$t"));
         setDate(jo.optJSONObject("published").optString("$t"));
         setContent(jo.optJSONObject("content").optString("$t"));
         setId(jo.optJSONObject("id").optString("$t"));
     }
+    public Article(){};
 
     public String getTitle() {
         return title;

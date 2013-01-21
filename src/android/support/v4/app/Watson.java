@@ -10,6 +10,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /** I'm in ur package. Stealing ur variables. */
@@ -27,7 +28,7 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
     }
     /** Fragment interface for menu item selection callback. */
     public interface OnOptionsItemSelectedListener {
-        public boolean onOptionsItemSelected(MenuItem item);
+        public boolean onOptionsItemSelected(MenuItem item) throws SQLException;
     }
 
     private ArrayList<Fragment> mCreatedMenus;
@@ -112,7 +113,7 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onMenuItemSelected(int featureId, MenuItem item) throws SQLException {
         if (DEBUG) Log.d(TAG, "[onMenuItemSelected] featureId: " + featureId + ", item: " + item);
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL) {

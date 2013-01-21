@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.ViewGroup.LayoutParams;
 
+import java.sql.SQLException;
+
 @ActionBarSherlock.Implementation(api = 14)
 public class ActionBarSherlockNative extends ActionBarSherlock {
     private ActionBarWrapper mActionBar;
@@ -72,7 +74,7 @@ public class ActionBarSherlockNative extends ActionBarSherlock {
     }
 
     @Override
-    public boolean dispatchOptionsItemSelected(android.view.MenuItem item) {
+    public boolean dispatchOptionsItemSelected(android.view.MenuItem item) throws SQLException {
         if (DEBUG) Log.d(TAG, "[dispatchOptionsItemSelected] item: " + item.getTitleCondensed());
 
         final boolean result = callbackOptionsItemSelected(mMenu.findItem(item));

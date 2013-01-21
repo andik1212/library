@@ -14,6 +14,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.sql.SQLException;
+
 import static com.actionbarsherlock.ActionBarSherlock.OnActionModeFinishedListener;
 import static com.actionbarsherlock.ActionBarSherlock.OnActionModeStartedListener;
 
@@ -202,7 +204,12 @@ public class SherlockFragmentActivity extends Watson implements OnActionModeStar
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL && !mIgnoreNativeSelected) {
             mIgnoreNativeSelected = true;
-            boolean result = getSherlock().dispatchOptionsItemSelected(item);
+            boolean result = false;
+            try {
+                result = getSherlock().dispatchOptionsItemSelected(item);
+            } catch (SQLException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
             mIgnoreNativeSelected = false;
 
             if (DEBUG) Log.d(TAG, "[onMenuItemSelected] returning " + result);

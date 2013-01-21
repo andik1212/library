@@ -1,16 +1,16 @@
 package com.example.andik1212;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 import com.example.andik1212.fragments.FragmentDetail;
 
 public class ActivityDetail extends SherlockFragmentActivity {
     public static final int OPT_BUTTON_LIKE = 0;
 //    public static final int OPT_BUTTON_DISLIKE = 1;
+    public Context cntx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -15,6 +16,11 @@ import java.util.Vector;
  * To change this template use File | Settings | File Templates.
  */
 public class ArticleCollection extends Vector{
+    public ArticleCollection(List<Article> articles) {
+        //To change body of created methods use File | Settings | File Templates.
+    }
+    public ArticleCollection(){};
+
     public static void setLength(int length) {
         length = length;
     }
