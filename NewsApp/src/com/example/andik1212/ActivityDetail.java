@@ -9,6 +9,8 @@ import com.example.andik1212.fragments.FragmentDetail;
 
 public class ActivityDetail extends SherlockFragmentActivity {
     public static final int OPT_BUTTON_LIKE = 0;
+    public static final int OPT_BUTTON_FACEBOOOK = 1;
+    public static final int OPT_BUTTON_TWEETTER = 2;
 //    public static final int OPT_BUTTON_DISLIKE = 1;
     public Context cntx = this;
 

@@ -5,6 +5,7 @@
     <excludeFromCompile>
       <directory url="file://$PROJECT_DIR$/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/NewsApp/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/facebook-android-sdk-3.0/facebook/gen" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>

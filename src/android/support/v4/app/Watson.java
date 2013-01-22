@@ -10,6 +10,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
     }
     /** Fragment interface for menu item selection callback. */
     public interface OnOptionsItemSelectedListener {
-        public boolean onOptionsItemSelected(MenuItem item) throws SQLException;
+        public boolean onOptionsItemSelected(MenuItem item) throws SQLException, IOException;
     }
 
     private ArrayList<Fragment> mCreatedMenus;
@@ -125,8 +126,12 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
                 for (int i = 0; i < mFragments.mAdded.size(); i++) {
                     Fragment f = mFragments.mAdded.get(i);
                     if (f != null && !f.mHidden && f.mHasMenu && f.mMenuVisible && f instanceof OnOptionsItemSelectedListener) {
-                        if (((OnOptionsItemSelectedListener)f).onOptionsItemSelected(item)) {
-                            return true;
+                        try {
+                            if (((OnOptionsItemSelectedListener)f).onOptionsItemSelected(item)) {
+                                return true;
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                         }
                     }
                 }

@@ -25,6 +25,7 @@ import com.example.andik1212.helper.ArticleCollection;
 import com.example.andik1212.helper.CustomArrayAdapter;
 import com.example.andik1212.helper.GetNews;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 /**
@@ -193,7 +194,7 @@ public class FragmenListLike extends SherlockFragment {
             menu.add(0, StartActivity.OPT_BUTTON_ALLLIKES,0,"Return").setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         }
 
-        public boolean onOptionsItemSelected(MenuItem item) throws SQLException {
+        public boolean onOptionsItemSelected(MenuItem item) throws SQLException, IOException {
             if(item.getItemId() == StartActivity.OPT_BUTTON_ALLLIKES)
             {
 //            toDo on pressed

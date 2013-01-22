@@ -8,6 +8,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import static com.actionbarsherlock.app.SherlockFragmentActivity.OnCreateOptionsMenuListener;
@@ -64,7 +65,11 @@ public class SherlockFragment extends Fragment implements OnCreateOptionsMenuLis
     @Override
     public final boolean onOptionsItemSelected(android.view.MenuItem item) {
         try {
-            return onOptionsItemSelected(new MenuItemWrapper(item));
+            try {
+                return onOptionsItemSelected(new MenuItemWrapper(item));
+            } catch (IOException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -72,7 +77,7 @@ public class SherlockFragment extends Fragment implements OnCreateOptionsMenuLis
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) throws SQLException {
+    public boolean onOptionsItemSelected(MenuItem item) throws SQLException, IOException {
         //Nothing to see here.
         return false;
     }

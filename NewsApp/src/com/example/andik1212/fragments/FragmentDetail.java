@@ -1,5 +1,6 @@
 package com.example.andik1212.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,11 @@ import com.example.andik1212.ActivityDetail;
 import com.example.andik1212.R;
 import com.example.andik1212.database.DBHelperAdapter;
 import com.example.andik1212.helper.Article;
-import com.example.andik1212.helper.ArticleCollection;
+import com.example.andik1212.share.facebook.FacebookHelper;
+import com.facebook.*;
+import com.facebook.model.*;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -32,6 +36,7 @@ public class FragmentDetail extends SherlockFragment {
     Article article = new Article();
     String buttonLabel = "like";
     Menu menuLockal;
+    FacebookHelper facebookHelper;
 
 
     public static FragmentDetail newInstance(String[] text) {
@@ -98,11 +103,21 @@ public class FragmentDetail extends SherlockFragment {
         if (!(articleList == null || articleList.size()==0)) existIn = true;
         if (existIn) {buttonLabel = "disLike";} else {buttonLabel = "like";}
 
-        menu.add(0, ActivityDetail.OPT_BUTTON_LIKE, 0, buttonLabel).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, ActivityDetail.OPT_BUTTON_FACEBOOOK, 0, "").setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, ActivityDetail.OPT_BUTTON_TWEETTER, 0, "").setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, ActivityDetail.OPT_BUTTON_LIKE, 0, "").setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(ActivityDetail.OPT_BUTTON_FACEBOOOK).setIcon(R.drawable.fb);
+        menu.findItem(ActivityDetail.OPT_BUTTON_TWEETTER).setIcon(R.drawable.twitter);
+        if (buttonLabel=="like"){
+            menu.findItem(ActivityDetail.OPT_BUTTON_LIKE).setIcon(R.drawable.like);
+        } else{
+            menu.findItem(ActivityDetail.OPT_BUTTON_LIKE).setIcon(R.drawable.dislike);
+        }
+
         this.menuLockal=menu;
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) throws SQLException {
+    public boolean onOptionsItemSelected(MenuItem item) throws SQLException, IOException {
         if(item.getItemId() == ActivityDetail.OPT_BUTTON_LIKE)
         {   int rows=-1;
 //            toDo on pressed
@@ -114,7 +129,9 @@ public class FragmentDetail extends SherlockFragment {
 //                ArticleCollection articles_db = new ArticleCollection(DBHelperAdapter.GetHelper().getArticleDao().queryForAll());
 //                Toast.makeText(getActivity(),rows+" rows updated"+articles_db.size()+" entries in bd",Toast.LENGTH_LONG).show();
                 buttonLabel = "disLike";
-                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setTitle(buttonLabel);
+//                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setTitle(buttonLabel);
+                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setIcon(R.drawable.dislike);
+
             } catch (SQLException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
@@ -122,16 +139,23 @@ public class FragmentDetail extends SherlockFragment {
                 rows = DBHelperAdapter.GetHelper().getArticleDao().delete(article);
                 Toast.makeText(getActivity(),rows+" rows deleted",Toast.LENGTH_SHORT).show();
                 buttonLabel = "like";
-                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setTitle(buttonLabel);
-
+//                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setTitle(buttonLabel);
+                menuLockal.findItem(ActivityDetail.OPT_BUTTON_LIKE).setIcon(R.drawable.like);
             }
-
+        }
+        if (item.getItemId() == ActivityDetail.OPT_BUTTON_FACEBOOOK){
+            facebookHelper = new FacebookHelper(getSherlockActivity());
+            facebookHelper.postMessageViaFB("sdgrhsdfg");
 
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(getActivity(), requestCode, resultCode, data);
+    }
 
 }

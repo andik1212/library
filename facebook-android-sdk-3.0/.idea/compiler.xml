@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/GraphApiSample/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/Scrumptious/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/Hackbook/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/ProfilePictureSample/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/PlacePickerSample/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/facebook/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/BooleanOGSample/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/SwitchUserSample/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/SessionLoginSample/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/HelloFacebookSample/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/facebook-android-sdk-3.0/samples/FriendPickerSample/gen" includeSubdirectories="true" />
+    </excludeFromCompile>
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="?*.properties" />
+      <entry name="?*.xml" />
+      <entry name="?*.gif" />
+      <entry name="?*.png" />
+      <entry name="?*.jpeg" />
+      <entry name="?*.jpg" />
+      <entry name="?*.html" />
+      <entry name="?*.dtd" />
+      <entry name="?*.tld" />
+      <entry name="?*.ftl" />
+    </wildcardResourcePatterns>
+    <annotationProcessing enabled="false" useClasspath="true" />
+  </component>
+</project>
+

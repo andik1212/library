@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/facebook-android-sdk-3.0/facebook-android-sdk-3.0/facebook/Facebook.iml" filepath="$PROJECT_DIR$/facebook-android-sdk-3.0/facebook-android-sdk-3.0/facebook/Facebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/Library.iml" filepath="$PROJECT_DIR$/Library.iml" />
       <module fileurl="file://$PROJECT_DIR$/NewsApp/NewsApp.iml" filepath="$PROJECT_DIR$/NewsApp/NewsApp.iml" />
     </modules>

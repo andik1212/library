@@ -26,6 +26,7 @@ import com.example.andik1212.helper.ArticleCollection;
 import com.example.andik1212.helper.CustomArrayAdapter;
 import com.example.andik1212.helper.GetNews;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class FragmentList extends SherlockFragment {
@@ -214,28 +215,15 @@ public class FragmentList extends SherlockFragment {
         if(item.getItemId() == StartActivity.OPT_BUTTON_ALLLIKES)
         {
 //            toDo on pressed
-//            Toast.makeText(_self.activity, "likes....", Toast.LENGTH_LONG).show();
-//            _self.articles_db = new ArticleCollection(DBHelperAdapter.GetHelper().getArticleDao().queryForAll());
-//            Article art;
-//            values = new String[_self.articles.size()];
-//            date = new String[_self.articles.size()];
-//            content = new String[_self.articles.size()];
-//            jId = new String[_self.articles.size()];
-//            for (int i = 0; i < _self.articles.size(); i++){
-//                art = (Article)_self.articles.elementAt(i);
-//                values[i] = art.getTitle();
-//                date[i] = art.getDate();
-//                date[i] = date[i].substring(0, 10);
-//                content[i] = art.getContent();
-//                jId[i] = art.getId();
-//                hideLoadingIndicator();
-//                updateUi();
-//            }
-            _self.activity.getSupportFragmentManager().beginTransaction().replace(R.id.list_frag, new FragmenListLike.FragmentListLike()).addToBackStack(null).commit();
-
+            _self.articles_db = new ArticleCollection(DBHelperAdapter.GetHelper().getArticleDao().queryForAll());
         }
 
-        return super.onOptionsItemSelected(item);
+        try {
+            return super.onOptionsItemSelected(item);
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return false;
     }
 
 
@@ -248,7 +236,7 @@ public class FragmentList extends SherlockFragment {
             }
             String action = intent.getAction();
             if (action.equals(StartActivity.INTERNET_STATUS)){
-                Toast.makeText(_self.activity, "NO connection to internet!", Toast.LENGTH_LONG).show();
+                Toast.makeText(_self.activity, "NO connection to internet!", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -260,7 +248,7 @@ public class FragmentList extends SherlockFragment {
             }
             String action = intent.getAction();
             if (action.equals(StartActivity.INTERNET_STATUS)){
-                Toast.makeText(_self.activity, "Internet connected!", Toast.LENGTH_LONG).show();
+                Toast.makeText(_self.activity, "Internet connected!", Toast.LENGTH_SHORT).show();
             }
 
         }

@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">NewsApp by Andik</string>
     <string name="loading_text">Loading . . .</string>
+    <string name="app_id">557912684236608</string>
 </resources>
