@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.example.andik1212.fragments.FragmentDetail;
+import com.facebook.Session;
 
 public class ActivityDetail extends SherlockFragmentActivity {
     public static final int OPT_BUTTON_LIKE = 0;
@@ -46,4 +47,9 @@ public class ActivityDetail extends SherlockFragmentActivity {
 
         super.onBackPressed();
     }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+//    }
 }

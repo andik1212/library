@@ -3,9 +3,12 @@ package com.example.andik1212.share.facebook;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Toast;
+import com.facebook.*;
 import com.facebook.android.DialogError;
 import com.facebook.android.Facebook;
 import com.facebook.android.FacebookError;
+import com.facebook.model.GraphUser;
 
 
 import java.io.*;
@@ -21,10 +24,16 @@ public class FacebookHelper {
     public static final String APP_ID = "557912684236608";
     private final Activity activity;
     private Facebook facebookClient;
+    private Session session;
+    private Request.Callback callback;
 
 
-    public FacebookHelper(Activity activity){
+    public FacebookHelper(final Activity activity){
         this.activity=activity;
+        session = new Session(activity);
+        Session.setActiveSession(session);
+
+
 
 
     }
@@ -36,6 +45,15 @@ public class FacebookHelper {
 // request parameters building
         Bundle params = new Bundle();
         params.putString("message", message);
+        // sending request
+        facebookClient.dialog(activity, "feed", params, new Facebook.DialogListener() {
+            public void onComplete(Bundle values) {/*do something on complete*/}
+            public void onFacebookError(FacebookError e) {/*do something on FB error*/}
+            public void onError(DialogError e) {/*do something on dialog error*/}
+            public void onCancel() {/*do something on user cancel*/}
+        });
+
+
         try {
             facebookClient.request("me/feed", params, "POST");
         } catch (IOException e) {
@@ -64,17 +82,17 @@ public class FacebookHelper {
 //
 //        RequestAsyncTask task = new RequestAsyncTask(request);
 //        task.execute();
-
-// sending request
-        facebookClient.dialog(activity, "me/feed", params, new Facebook.DialogListener() {
-            public void onComplete(Bundle values) {/*do something on complete*/}
-
-            public void onFacebookError(FacebookError e) {/*do something on FB error*/}
-
-            public void onError(DialogError e) {/*do something on dialog error*/}
-
-            public void onCancel() {/*do something on user cancel*/}
-        });
+//
+//// sending request
+//        facebookClient.dialog(activity, "me/feed", params, new Facebook.DialogListener() {
+//            public void onComplete(Bundle values) {/*do something on complete*/}
+//
+//            public void onFacebookError(FacebookError e) {/*do something on FB error*/}
+//
+//            public void onError(DialogError e) {/*do something on dialog error*/}
+//
+//            public void onCancel() {/*do something on user cancel*/}
+//        });
 
 
     }
