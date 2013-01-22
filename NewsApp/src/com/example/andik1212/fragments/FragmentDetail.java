@@ -144,8 +144,7 @@ public class FragmentDetail extends SherlockFragment {
             }
         }
         if (item.getItemId() == ActivityDetail.OPT_BUTTON_FACEBOOOK){
-            facebookHelper = new FacebookHelper(getSherlockActivity());
-            facebookHelper.postMessageViaFB("sdgrhsdfg");
+            facebookHelper = new FacebookHelper(getSherlockActivity(),text[1],"Post on android-developers.blogspot.com posted at "+text[2]);
 
         }
 

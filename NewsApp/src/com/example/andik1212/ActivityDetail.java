@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.example.andik1212.fragments.FragmentDetail;
 import com.facebook.Session;
@@ -47,9 +48,13 @@ public class ActivityDetail extends SherlockFragmentActivity {
 
         super.onBackPressed();
     }
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+    }
+
+
+
+
 }
